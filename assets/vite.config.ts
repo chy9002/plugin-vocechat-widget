@@ -4,16 +4,16 @@ import { defineConfig } from "vite";
 import { viteStaticCopy as ViteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
-  plugins: [
-    ViteStaticCopy({
-      targets: [
-        {
-          src: `./node_modules/lightgallery.js/dist/*`,
-          dest: "",
-        },
-      ],
-    }),
-  ],
+  // plugins: [
+  //   ViteStaticCopy({
+  //     targets: [
+  //       {
+  //         src: `./node_modules/lightgallery.js/dist/*`,
+  //         dest: "",
+  //       },
+  //     ],
+  //   }),
+  // ],
   build: {
     outDir: fileURLToPath(
       new URL("../src/main/resources/static", import.meta.url)
