@@ -38,7 +38,7 @@ jobs:
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/console/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/assets/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - name: Install Frontend Dependencies
@@ -51,10 +51,10 @@ jobs:
           version=${version#v}
           sed -i "s/version=.*-SNAPSHOT$/version=$version/1" gradle.properties
           ./gradlew clean build -x test
-      - name: Archive plugin-starter jar
+      - name: Archive plugin-vocechat-widgety jar
         uses: actions/upload-artifact@v2
         with:
-          name: plugin-starter
+          name: plugin-vocechat-widgety
           path: |
             build/libs/*.jar
           retention-days: 1
@@ -64,10 +64,10 @@ jobs:
     needs: build
     if: github.event_name == 'release'
     steps:
-      - name: Download plugin-starter jar
+      - name: Download plugin-vocechat-widgety jar
         uses: actions/download-artifact@v2
         with:
-          name: plugin-starter
+          name: plugin-vocechat-widgety
           path: build/libs
       - name: Get Name of Artifact
         id: get_artifact

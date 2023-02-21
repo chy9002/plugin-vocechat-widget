@@ -1,0 +1,37 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: plugin-vocechat-widget-settings
+spec:
+  forms:
+    - group: basic
+      label: 基本设置
+      formSchema:
+        - $formkit: text
+          help: 填写VoceChat的url, 如https://yourdomain.com
+          label: VoceChat url
+          name: vocechat_url
+          validation: required
+        - $formkit: text
+          help: 填写VoceChat的用户ID, 如1
+          label: VoceChat User ID
+          name: vocechat_userid
+          validation: required
+        - $formkit: text
+          help: VoceChat聊天框的宽度, 默认280
+          label: VoceChat Widget Width
+          name: vocechat_width
+          value: "280"
+          validation: required
+        - $formkit: text
+          help: VoceChat聊天框的高度, 默认500
+          label: VoceChat Widget Height
+          name: vocechat_height
+          value: "500"
+          validation: required
+        - $formkit: text
+          help: VoceChat聊天框的主题色
+          label: VoceChat Widget Color
+          name: vocechat_color
+          value: "#1fe1f9"
+          validation: required
