@@ -12,22 +12,22 @@ spec:
           label: VoceChat url
           name: vocechat_url
           validation: required|url
-        - $formkit: text
+        - $formkit: number
           help: 填写VoceChat的用户ID, 如1
           label: VoceChat User ID
           name: vocechat_userid
           validation: required
-        - $formkit: text
+        - $formkit: number
           help: VoceChat聊天框的宽度, 默认280
           label: VoceChat Widget Width
           name: vocechat_width
           value: ""
-        - $formkit: text
+        - $formkit: number
           help: VoceChat聊天框的高度, 默认500
           label: VoceChat Widget Height
           name: vocechat_height
           value: ""
-        - $formkit: text
+        - $formkit: color
           help: VoceChat聊天框的主题色
           label: VoceChat Widget Color
           name: vocechat_color
