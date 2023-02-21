@@ -40,17 +40,18 @@ public class VoceChatWidgetHeadProcessor implements TemplateHeadProcessor {
         String script = "";
         if(StringUtils.isNotBlank(config.getVocechat_url()) && StringUtils.isNotBlank(config.getVocechat_userid())){
             script = """
-                <script 
-                  data-host-id="%s" 
-                  data-theme-color="%s"
-                  data-close-width="48"
-                  data-close-height="48"
-                  data-open-width="%s" 
-                  data-open-height="%s" 
-                  src="%s/widget.js" 
-                  async 
-                />
-                """.formatted(config.getVocechat_userid(),config.getVocechat_color(),config.getVocechat_width(),config.getVocechat_height(),config.getVocechat_url());
+                <script data-host-id="%s" 
+                src="%s/widget.js" 
+                data-close-width="48"
+                data-close-height="48"
+            """.formatted(config.getVocechat_userid(),config.getVocechat_url());
+            if(StringUtils.isNotBlank(config.getVocechat_color()))
+                script = script + "data-theme-color=\"%s\"".formatted(config.getVocechat_color());
+            if(StringUtils.isNotBlank(config.getVocechat_width()))
+                script = script + "data-open-width=\"%s\"".formatted(config.getVocechat_width());
+            if(StringUtils.isNotBlank(config.getVocechat_height()))
+                script = script + "data-open-height=\"%s\"".formatted(config.getVocechat_height());
+            script = script + " async /> ";
         }
         return script;
     }
